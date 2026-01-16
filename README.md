@@ -1,6 +1,6 @@
 # next-starter
 
-A production-ready Next.js starter with enterprise-level SEO, security headers, and modern tooling. Clone, customize, and ship.
+This project uses [create-audora-next](https://www.npmjs.com/package/create-audora-next) as its base.
 
 ## Quick Start
 
@@ -13,6 +13,18 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see your app.
+
+## Planned Features
+
+- **MDX loading** - Author posts with MDX and frontmatter support.
+- **Pagination** - First-class paginated lists for posts and tags.
+- **Search** - Fast, client-side search across content.
+
+### Recommended Packages
+
+- **MDX** - `@next/mdx` and `contentlayer`
+- **Search** - `flexsearch`
+- **Pagination** - Custom paginator (no external package)
 
 ## What's Included
 
