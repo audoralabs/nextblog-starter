@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { SITE_CONFIG } from "@/config/site";
+import { getPageMetadata } from "@/lib/seo";
 import { BlogSection } from "@/blogs/components/blog-section";
 import { CopyableCode } from "@/components/copyable-code";
 import { Github } from "lucide-react";
+
+export const metadata = getPageMetadata({
+  title: `${SITE_CONFIG.name} - ${SITE_CONFIG.tagline}`,
+  path: "/",
+});
 
 export default function Home() {
   return (

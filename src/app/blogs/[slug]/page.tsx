@@ -4,8 +4,17 @@ import { getBlogPost, getBlogPosts } from "@/blogs/data/mdx";
 import { extractHeadings } from "@/blogs/utils/extract-headings";
 import { BlogTableOfContents } from "@/blogs/components/blog-table-of-contents";
 import { formatDateDisplay } from "@/lib/utils";
+import { SITE_CONFIG } from "@/config/site";
 import Link from "next/link";
 import { ArrowLeft, Calendar, ExternalLink, Github } from "lucide-react";
+
+const siteUrl = SITE_CONFIG.url.replace(/\/$/, "");
+
+function resolveOgImage(pathOrUrl: string): string {
+  return pathOrUrl.startsWith("http")
+    ? pathOrUrl
+    : new URL(pathOrUrl, siteUrl).href;
+}
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -32,8 +41,8 @@ export async function generateMetadata({
     image,
   } = post.metadata;
   const ogImage = image
-    ? `https://narsibhati.com${image}`
-    : `https://narsibhati.com/og?title=${encodeURIComponent(title)}`;
+    ? `${siteUrl}${image}`
+    : resolveOgImage(SITE_CONFIG.ogImage);
 
   return {
     title,
@@ -43,7 +52,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://narsibhati.com/blog/${post.slug}`,
+      url: `${siteUrl}/blogs/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -88,9 +97,9 @@ export default async function Blog({
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
             image: post.metadata.image
-              ? `https://narsibhati.com${post.metadata.image}`
-              : `https://narsibhati.com/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `https://narsibhati.com/blog/${post.slug}`,
+              ? `${siteUrl}${post.metadata.image}`
+              : resolveOgImage(SITE_CONFIG.ogImage),
+            url: `${siteUrl}/blogs/${post.slug}`,
             author: {
               "@type": "Person",
               name: "Narsi Bhati",

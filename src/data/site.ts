@@ -2,8 +2,7 @@ const SITE_DATA = {
   name: "next-starter",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   ogImage:
-    process.env.NEXT_PUBLIC_OG_IMAGE ??
-    "http://localhost:3000/images/screenshot-desktop-dark.webp",
+    process.env.NEXT_PUBLIC_OG_IMAGE ?? "/images/screenshot-desktop-dark.webp",
 
   tagline: "Kickstart your Next.js project",
   description: "A modern, performant starter kit for Next.js applications.",
