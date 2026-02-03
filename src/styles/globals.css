@@ -3,50 +3,71 @@
 /* Custom dark variant for Tailwind CSS v4 */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Root color variables using oklch for a muted, premium look */
 :root {
-  --background: #ffffff;
-  --foreground: #09090b;
-  --card: #ffffff;
-  --card-foreground: #09090b;
-  --popover: #ffffff;
-  --popover-foreground: #09090b;
-  --primary: #18181b;
-  --primary-foreground: #fafafa;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #18181b;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #f4f4f5;
-  --accent-foreground: #18181b;
-  --destructive: #ef4444;
-  --destructive-foreground: #fafafa;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #18181b;
-  --radius: 0.5rem;
-  --content-max-width: 64rem;
+  /* Muted Slate/Zinc Tone */
+  --background: oklch(0.985 0.002 260); /* Very softened white */
+  --foreground: oklch(0.21 0.015 260); /* Muted slate black */
+  
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.015 260);
+  
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.015 260);
+  
+  --primary: oklch(0.21 0.02 260); /* Deep slate primary */
+  --primary-foreground: oklch(0.985 0 0);
+  
+  --secondary: oklch(0.96 0.005 260);
+  --secondary-foreground: oklch(0.21 0.015 260);
+  
+  --muted: oklch(0.96 0.005 260);
+  --muted-foreground: oklch(0.55 0.015 260); /* Softer muted text */
+  
+  --accent: oklch(0.96 0.005 260);
+  --accent-foreground: oklch(0.21 0.015 260);
+  
+  --destructive: oklch(0.65 0.2 23);
+  --destructive-foreground: oklch(0.985 0 0);
+  
+  --border: oklch(0.92 0.005 260);
+  --input: oklch(0.92 0.005 260);
+  --ring: oklch(0.21 0.015 260);
+  
+  --radius: 0.625rem;
+  
+  /** Content max width – change here to update hero, header, and blog layout */
+  --content-max-width: 64rem; /* 1024px = 5xl */
 }
 
 .dark {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --card: #09090b;
-  --card-foreground: #fafafa;
-  --popover: #09090b;
-  --popover-foreground: #fafafa;
-  --primary: #fafafa;
-  --primary-foreground: #18181b;
-  --secondary: #27272a;
-  --secondary-foreground: #fafafa;
-  --muted: #27272a;
-  --muted-foreground: #a1a1aa;
-  --accent: #27272a;
-  --accent-foreground: #fafafa;
-  --destructive: #ef4444;
-  --destructive-foreground: #fafafa;
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #d4d4d8;
+  --background: oklch(0.12 0.01 260); /* Deep muted slate bg */
+  --foreground: oklch(0.92 0.005 260); /* Softened white */
+  
+  --card: oklch(0.12 0.01 260);
+  --card-foreground: oklch(0.92 0.005 260);
+  
+  --popover: oklch(0.12 0.01 260);
+  --popover-foreground: oklch(0.92 0.005 260);
+  
+  --primary: oklch(0.92 0.005 260);
+  --primary-foreground: oklch(0.12 0.01 260);
+  
+  --secondary: oklch(0.2 0.01 260);
+  --secondary-foreground: oklch(0.92 0.005 260);
+  
+  --muted: oklch(0.2 0.01 260);
+  --muted-foreground: oklch(0.65 0.01 260);
+  
+  --accent: oklch(0.2 0.01 260);
+  --accent-foreground: oklch(0.92 0.005 260);
+  
+  --destructive: oklch(0.5 0.2 23);
+  --destructive-foreground: oklch(0.92 0.005 260);
+  
+  --border: oklch(0.22 0.01 260);
+  --input: oklch(0.22 0.01 260);
+  --ring: oklch(0.8 0 0);
 }
 
 @theme inline {
@@ -57,6 +78,16 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-card: var(--card);
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-radius: var(--radius);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -64,5 +95,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }

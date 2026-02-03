@@ -38,9 +38,8 @@ export default async function BlogPage({
 
   return (
     <section className="py-16">
-      <SectionHeading>Blogs</SectionHeading>
-
       <div className="container mx-auto mt-8 max-w-(--content-max-width) px-4">
+        <SectionHeading>Blogs</SectionHeading>
         {totalPosts === 0 ? (
           <p className="text-muted-foreground">No posts yet.</p>
         ) : (

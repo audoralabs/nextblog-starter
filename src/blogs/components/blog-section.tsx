@@ -15,9 +15,9 @@ export function BlogSection() {
     .slice(0, 4);
 
   return (
-    <section id="blog" className="pt-6 pb-2">
-      <SectionHeading>Blogs</SectionHeading>
+    <section id="blog" className="pt-4 pb-2">
       <div className="container mx-auto mt-8 flex max-w-(--content-max-width) flex-col gap-6 px-4">
+        <SectionHeading>Blogs</SectionHeading>
         {sorted.length === 0 ? (
           <p className="text-muted-foreground">No posts yet.</p>
         ) : (

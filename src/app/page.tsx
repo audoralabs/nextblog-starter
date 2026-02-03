@@ -7,9 +7,9 @@ import { Github } from "lucide-react";
 export default function Home() {
   return (
     <>
-      <section className="container mx-auto flex max-w-5xl flex-col items-center justify-center px-4 py-24 text-center sm:py-32">
+      <section className="container mx-auto flex max-w-5xl flex-col items-center justify-center px-4 py-10 text-center sm:py-16">
         <div className="space-y-6">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl sm:leading-tight">
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-5xl sm:leading-tight">
             {SITE_CONFIG.tagline}
           </h1>
 
@@ -19,29 +19,31 @@ export default function Home() {
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href="https://github.com/AudoraLabs/next-starter"
+              href="https://github.com/audoralabs/nextblog-starter"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
-              <Github className="h-4 w-4" />
+              <Github className="h-4 w-4" suppressHydrationWarning />
               Star on GitHub
             </Link>
             <Link
-              href="/blogs"
-              className="inline-flex h-11 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              href="https://www.npmjs.com/package/create-audora-next"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-6 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
-              Read the blog
+              View on npm
             </Link>
           </div>
 
-          <div className="pt-8">
-            <CopyableCode code="npx create-next-app@latest -e https://github.com/AudoraLabs/next-starter" />
+          <div>
+            <CopyableCode code="bunx create-audora-next@latest -blog my-blog" />
           </div>
         </div>
       </section>
 
-      <section className="border-t border-border/40 py-16">
+      <section className="border-t border-border/40  p-2">
         <BlogSection />
       </section>
     </>

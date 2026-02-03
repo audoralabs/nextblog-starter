@@ -47,9 +47,11 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
+            <div className="mx-auto w-full max-w-5xl border-x border-border/50 min-h-screen flex flex-col bg-background">
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
           </div>
         </ThemeProvider>
       </body>
