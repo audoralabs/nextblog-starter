@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_CONFIG } from "@/config/site";
+import { getBlogPosts } from "@/blogs/data/mdx";
 
 export const dynamic = "force-static";
 
@@ -37,5 +38,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return staticRoutes;
+  // Blog posts
+  const blogPosts: MetadataRoute.Sitemap = getBlogPosts().map((post) => ({
+    url: `${siteUrl}/blog/${post.slug}`,
+    lastModified: post.metadata?.publishedAt
+      ? new Date(post.metadata.publishedAt).toISOString()
+      : currentDate,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...blogPosts];
 }

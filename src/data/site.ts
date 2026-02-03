@@ -27,6 +27,28 @@ const SITE_DATA = {
     "boilerplate for next.js",
     "web app starter",
   ],
+
+  features: [
+    {
+      title: "MDX blog",
+      description:
+        "Write posts in MDX with frontmatter, code blocks, and components.",
+    },
+    {
+      title: "SEO & metadata",
+      description:
+        "Built-in metadata, Open Graph, and JSON-LD for search and sharing.",
+    },
+    {
+      title: "Dark mode",
+      description: "System-aware theme toggle with persistent preference.",
+    },
+    {
+      title: "TypeScript",
+      description:
+        "Full TypeScript support and strict mode for safer refactors.",
+    },
+  ],
 };
 
 export default SITE_DATA;

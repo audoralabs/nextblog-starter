@@ -10,6 +10,7 @@ export const SITE_CONFIG = {
   alternateNames: SITE_DATA.alternateNames,
   twitterHandle: SITE_DATA.twitterHandle,
   keywords: SITE_DATA.keywords,
+  features: SITE_DATA.features,
 };
 
 export const META_THEME_COLORS = {

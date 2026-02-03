@@ -1,63 +1,49 @@
 import Link from "next/link";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { SITE_CONFIG } from "@/config/site";
+import { BlogSection } from "@/blogs/components/blog-section";
 import { CopyableCode } from "@/components/copyable-code";
+import { Github } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen items-center justify-center px-6">
-      <div className="absolute top-6 right-6">
-        <ThemeToggle />
-      </div>
-      <main className="max-w-xl text-center">
-        <p className="text-xs font-medium tracking-[0.2em] text-neutral-500 uppercase dark:text-neutral-500">
-          AudoraLabs
-        </p>
+    <>
+      <section className="container mx-auto flex max-w-5xl flex-col items-center justify-center px-4 py-24 text-center sm:py-32">
+        <div className="space-y-6">
+          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl sm:leading-tight">
+            {SITE_CONFIG.tagline}
+          </h1>
 
-        <h1 className="mt-6 text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl dark:text-white">
-          next-starter
-        </h1>
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl">
+            {SITE_CONFIG.shortDescription}
+          </p>
 
-        <p className="mx-auto mt-6 max-w-md text-lg text-neutral-600 dark:text-neutral-400">
-          Production-ready Next.js starter with sane defaults.
-        </p>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="https://github.com/AudoraLabs/next-starter"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
+              <Github className="h-4 w-4" />
+              Star on GitHub
+            </Link>
+            <Link
+              href="/blogs"
+              className="inline-flex h-11 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            >
+              Read the blog
+            </Link>
+          </div>
 
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Link
-            href="https://github.com/AudoraLabs/next-starter"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-11 items-center justify-center rounded-md bg-neutral-950 px-6 text-sm font-medium text-white transition-colors hover:bg-neutral-800 dark:bg-white dark:text-neutral-950 dark:hover:bg-neutral-200"
-          >
-            Get Started
-          </Link>
-          <Link
-            href="https://github.com/AudoraLabs"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-neutral-600 transition-colors hover:text-neutral-950 dark:text-neutral-500 dark:hover:text-white"
-          >
-            View on GitHub
-          </Link>
+          <div className="pt-8">
+            <CopyableCode code="npx create-next-app@latest -e https://github.com/AudoraLabs/next-starter" />
+          </div>
         </div>
+      </section>
 
-        <CopyableCode code="bun create audora-next my-app" />
-      </main>
-
-      <footer className="absolute right-0 bottom-6 left-0 flex justify-center gap-4">
-        <Link
-          href="/llms.txt"
-          className="text-xs text-neutral-500 transition-colors hover:text-neutral-950 dark:hover:text-white"
-        >
-          llms.txt
-        </Link>
-        <span className="text-neutral-300 dark:text-neutral-700">·</span>
-        <Link
-          href="/llms-full.txt"
-          className="text-xs text-neutral-500 transition-colors hover:text-neutral-950 dark:hover:text-white"
-        >
-          llms-full.txt
-        </Link>
-      </footer>
-    </div>
+      <section className="border-t border-border/40 py-16">
+        <BlogSection />
+      </section>
+    </>
   );
 }

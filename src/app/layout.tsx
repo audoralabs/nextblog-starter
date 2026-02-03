@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 import {
   getMetadata,
   getViewport,
@@ -44,7 +46,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
