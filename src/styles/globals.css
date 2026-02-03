@@ -41,7 +41,7 @@
 }
 
 .dark {
-  --background: oklch(0.12 0.01 260); /* Deep muted slate bg */
+  --background: #0b0d0e; /* Deep dark bg */
   --foreground: oklch(0.92 0.005 260); /* Softened white */
   
   --card: oklch(0.12 0.01 260);

@@ -177,11 +177,13 @@ const components: MDXComponents = {
     }
 
     return (
-      <div className="group relative">
-        <div className="absolute top-3 right-3 z-20">
+      <div className="group relative my-6 overflow-hidden rounded-xl border border-border bg-[#141517]">
+        <div className="absolute top-3 right-3 z-20 opacity-0 transition-opacity group-hover:opacity-100">
           {textToCopy && <CopyButton text={textToCopy} />}
         </div>
-        <pre {...rest}>{children}</pre>
+        <pre className="overflow-x-auto p-4 text-sm" {...rest}>
+          {children}
+        </pre>
       </div>
     );
   },
